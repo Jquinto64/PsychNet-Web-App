@@ -6,6 +6,7 @@ Created on Sat May 16 22:13:24 2020
 """
 
 from flask import Flask, render_template, request
+import wtforms
 from wtforms import Form, TextAreaField, validators
 import pickle
 import sqlite3
