@@ -6,14 +6,13 @@ Created on Sat May 16 22:13:24 2020
 """
 
 from flask import Flask, render_template, request
-import wtforms
-from wtforms import Form, TextAreaField, validators
 import pickle
 import sqlite3
 import os
 import numpy as np
 from fastai import *
 from fastai.text import *
+from wtforms import Form, TextAreaField, validators
 
 # Load text classifier model and encoder
 path = "C:/Users/jquin/Desktop/Projects/Twitts/"
