@@ -15,7 +15,7 @@ from fastai.text import *
 from wtforms import Form, TextAreaField, validators
 
 # Load text classifier model and encoder
-path = "C:/Users/jquin/Desktop/Projects/Twitts/"
+path = "models"
 model = load_learner(path, 'final_model.pkl')
 
 app = Flask(__name__)
