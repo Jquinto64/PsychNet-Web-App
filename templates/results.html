@@ -31,44 +31,162 @@
         </style>
         
     </head>
-    <div class = "parallax_img" style = "height: 100vh;"> 
-    <body>
+    <div class = "parallax_img" style = "height:120vh;"> 
+    <body onload="myFunction()">
    <div style=" display: flex; align-items: center; justify-content: center; align-conten:center; min-height: 100%;  /* Fallback for browsers do NOT support vh unit */min-height: 100vh; width=800px">
        <div class="mx-auto" style="width: 800px; height:400px">
-            <div class="card" style="background: rgba(255, 255, 255, 0.8); border-radius:16px" > 
-                <div class = "card-body">
-                    <h4 style="font-family:Offside; font-size:40px; font-weight:1000; color:#00008B"> PsychNet</h4>
-                    <small style="font-family:Offside; font-size:16px; font-weight:800; color:#00008B"> Screening Mental Health with AI </small> 
-                    <hr style="color:#00008B;background-color:#00008B; height:0.75px;" />            
-                    <h4 style="color:#00008B"> Your Message </h4>   
-                    <h5 style="font-size:16px; color:#000000"> "{{content}}" </h5>
-                    <hr style="color:#00008B;background-color:#00008B; height:0.75px;" />
-
-                    <h4 style="color:#00008B">Prediction</h4>
-                    <h5 style="font-size:16px; color:#000000">
-                        Your thought is: <strong>{{ prediction }}</strong> ({{ probability }}%)
-                    </h5>
-                    <div class="text-center">
-                    <hr style="color:#00008B;background-color:#00008B; height:0.75px;" />
-                    <div class="text-center">                
-                        <form action="/">
-                            <style type="text/css">
-                                /*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
-                                .btn-primary {
-                                    color:  #fff;
-                                    background-color:  #00008B;
-                                    border-color: #00008B; /*set the color you want here*/
-                                    font-size:18px;
-                                }
-                                .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-                                    color: #fff;
-                                    background-color: #800080;
-                                    border-color: #800080; /*set the color you want here*/
-                                    font-size:18px;
-                                }
-                            </style>
-                            <input class="btn btn-primary btn-lg" type="submit" value="Send Another Message">
-                        </form>
+            <style>
+               #test {
+                    animation: fadein 2.5s;
+                    -moz-animation: fadein 2.5s; /* Firefox */
+                    -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+                    -o-animation: fadein 2.5s; /* Opera */
+                }
+                @keyframes fadein {
+                    from {
+                        opacity:0;
+                    }
+                    to {
+                        opacity:1;
+                    }
+                }
+                @-moz-keyframes fadein { /* Firefox */
+                    from {
+                        opacity:0;
+                    }
+                    to {
+                        opacity:1;
+                    }
+                }
+                @-webkit-keyframes fadein { /* Safari and Chrome */
+                    from {
+                        opacity:0;
+                    }
+                    to {
+                        opacity:1;
+                    }
+                }
+                @-o-keyframes fadein { /* Opera */
+                    from {
+                        opacity:0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+            </style>
+            <div id="test">
+                <div class="card" style="background: rgba(255, 255, 255, 0.8); border-radius:16px"> 
+                    <div class = "card-body">
+                        <h4 style="font-family:Offside; font-size:40px; font-weight:1000; color:#00008B"> PsychNet</h4>
+                        <small style="font-family:Offside; font-size:16px; font-weight:800; color:#00008B"> Screening Mental Health with AI </small> 
+                        <hr style="color:#00008B;background-color:#00008B; height:0.75px;" />            
+                        <h4 style="color:#00008B"> Your Message </h4>   
+                        <h5 style="font-size:16px; color:#000000"> "{{content}}" </h5>
+                        <hr style="color:#00008B;background-color:#00008B; height:0.5px;" />
+    
+                        <h4 style="color:#00008B">Prediction</h4>
+                        <style>
+                            .flex-wrapper {
+                              display: flex;
+                              flex-flow: row nowrap;
+                              justify-content: space-around;
+                            }
+                            
+                            .single-chart {
+                              width: 33%;
+                              justify-content: space-around ;
+                            }
+                            
+                            .circular-chart {
+                              display: inline-block;
+                              margin: 10px auto;
+                              max-width: 70%;
+                              max-height: 250px;
+                            }
+                            
+                            .circle-bg {
+                              fill: none;
+                              stroke: #eee;
+                              stroke-width: 3.8;
+                            }
+                            
+                            .circle {
+                              fill: none;
+                              stroke-width: 2.8;
+                              stroke-linecap: round;
+                              animation: progress 1s ease-out forwards;
+                            }
+                            
+                            @keyframes progress {
+                              0% {
+                                stroke-dasharray: 0 100;
+                              }
+                            }
+                            
+                            .circular-chart.orange .circle {
+                              stroke: #00008B;
+                            }
+                            
+                            .circular-chart.green .circle {
+                              stroke: #4CC790;
+                            }
+                            
+                            .circular-chart.blue .circle {
+                              stroke: #3c9ee5;
+                            }
+                            
+                            .percentage {
+                              fill: #666;
+                              font-family: sans-serif;
+                              font-size: 5pt;
+                              text-anchor: middle;
+                              color: color:#00008B;
+                            }
+                        </style>
+                        <div class="flex-wrapper" style="text-align:center">
+                           <div class="single-chart">
+                            <svg viewBox="0 0 36 36" class="circular-chart orange">
+                              <path class="circle-bg"
+                                d="M18 2.0845
+                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                              />
+                              <path class="circle"
+                                stroke-dasharray="{{probability}}, 100"
+                                d="M18 2.0845
+                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                  a 15.9155 15.9155 0 0 1 0 -31.831"
+                              />
+                              <text x="18" y="20.35" class="percentage">{{probability}}%</text>
+                            </svg>
+                          </div>
+                        </div>
+                        <h5 style="font-size:16px; color:#000000; text-align:center">
+                            Your thought is: <strong>{{ prediction }}</strong>
+                        </h5>
+                        <div class="text-center">
+                        <hr style="color:#00008B;background-color:#00008B; height:0.75px;" />
+                        <div class="text-center">                
+                            <form action="/">
+                                <style type="text/css">
+                                    /*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
+                                    .btn-primary {
+                                        color:  #fff;
+                                        background-color:  #00008B;
+                                        border-color: #00008B; /*set the color you want here*/
+                                        font-size:18px;
+                                    }
+                                    .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+                                        color: #fff;
+                                        background-color: #800080;
+                                        border-color: #800080; /*set the color you want here*/
+                                        font-size:18px;
+                                    }
+                                </style>
+                                <input class="btn btn-primary btn-lg" type="submit" value="Send Another Message">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
