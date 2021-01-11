@@ -7,7 +7,9 @@
 
 # Performance
 - PsychNet achieved a test accuracy of ~92%, adjusted for class imbalances, with very high precision and recall scores for both classes
+- The confusion matrix for the test data:
 ![alt text](https://i.imgur.com/HilNrrd.png)
+- Classification report showing precision, recall, and F1 scores for "normal" and "depressed" posts:
 ![alt text](https://i.imgur.com/1uvVHH4.png)
 
 # Process
